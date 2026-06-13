@@ -5,7 +5,7 @@ from typing import Any
 from sqlalchemy import func, select
 from sqlalchemy.orm import Session
 
-from genshin_analyser.models import (
+from genshin_analyzer.models import (
     Account,
     AccountArtifact,
     AccountCharacter,
@@ -15,7 +15,7 @@ from genshin_analyser.models import (
     SyncRun,
     Weapon,
 )
-from genshin_analyser.time import utc_now
+from genshin_analyzer.time import utc_now
 
 
 CHARACTER_INTRO_KEYS = {

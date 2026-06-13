@@ -1,6 +1,6 @@
-﻿# GenshinAnalyser
+﻿# GenshinAnalyzer
 
-`GenshinAnalyser` 当前阶段先做一件事：在本地建立一个服务于练度和伤害计算的原神资料数据库。
+`GenshinAnalyzer` 当前阶段先做一件事：在本地建立一个服务于练度和伤害计算的原神资料数据库。
 
 这个阶段参考 HoYoLAB Wiki 的图鉴模式组织数据：先有列表，再能进入单个条目详情。角色表只保留 `name`、`rarity`、`element`、`weapon_type`、`character_data`、`talent_data`、`constellation_data`、`stats_data`。武器表只保留 `name`、`rarity`、`weapon_type`、`weapon_data`、`stats_data`。圣遗物套装表只保留 `name`、`flower_name`、`plume_name`、`sands_name`、`goblet_name`、`circlet_name`、`effect_1pc`、`effect_2pc`、`effect_4pc`。
 
@@ -29,18 +29,18 @@ python -m pip install -e ".[dev]"
 
 ```powershell
 python -m pip install -e ".[dev]"
-genshin-analyser init
-genshin-analyser sync-characters
-genshin-analyser sync-weapons
-genshin-analyser sync-artifacts
-genshin-analyser init-account
+genshin-analyzer init
+genshin-analyzer sync-characters
+genshin-analyzer sync-weapons
+genshin-analyzer sync-artifacts
+genshin-analyzer init-account
 ```
 
 完成后可用下面两个命令确认本地数据库已经生成：
 
 ```powershell
-genshin-analyser stats
-genshin-analyser account-stats
+genshin-analyzer stats
+genshin-analyzer account-stats
 ```
 
 也可以打开 Notebook 做展示层验证：
@@ -56,51 +56,51 @@ jupyter notebook notebooks/artifact_database_view.ipynb
 初始化数据库：
 
 ```powershell
-genshin-analyser init
+genshin-analyzer init
 ```
 
 初始化独立账号数据库：
 
 ```powershell
-genshin-analyser init-account
+genshin-analyzer init-account
 ```
 
 同步全部角色资料：
 
 ```powershell
-genshin-analyser sync-characters
+genshin-analyzer sync-characters
 ```
 
 同步全部武器资料：
 
 ```powershell
-genshin-analyser sync-weapons
+genshin-analyzer sync-weapons
 ```
 
 同步全部圣遗物套装资料：
 
 ```powershell
-genshin-analyser sync-artifacts
+genshin-analyzer sync-artifacts
 ```
 
 快速验证时只同步前几个角色：
 
 ```powershell
-genshin-analyser sync-characters --limit 5
-genshin-analyser sync-weapons --limit 5
-genshin-analyser sync-artifacts --limit 5
+genshin-analyzer sync-characters --limit 5
+genshin-analyzer sync-weapons --limit 5
+genshin-analyzer sync-artifacts --limit 5
 ```
 
 查看数据库统计：
 
 ```powershell
-genshin-analyser stats
+genshin-analyzer stats
 ```
 
 查看账号数据库统计：
 
 ```powershell
-genshin-analyser account-stats
+genshin-analyzer account-stats
 ```
 
 打开账号录入 Notebook，手动录入 UID、角色、武器和圣遗物测试数据：
@@ -130,55 +130,55 @@ jupyter notebook notebooks/artifact_database_view.ipynb
 查看角色图鉴列表：
 
 ```powershell
-genshin-analyser list-characters
+genshin-analyzer list-characters
 ```
 
 查看武器列表：
 
 ```powershell
-genshin-analyser list-weapons
+genshin-analyzer list-weapons
 ```
 
 查看圣遗物套装列表：
 
 ```powershell
-genshin-analyser list-artifacts
+genshin-analyzer list-artifacts
 ```
 
 查看单个角色详情：
 
 ```powershell
-genshin-analyser show-character 胡桃
+genshin-analyzer show-character 胡桃
 ```
 
 查看单把武器详情：
 
 ```powershell
-genshin-analyser show-weapon 护摩之杖
+genshin-analyzer show-weapon 护摩之杖
 ```
 
 查看单套圣遗物详情：
 
 ```powershell
-genshin-analyser show-artifact 绝缘之旗印
+genshin-analyzer show-artifact 绝缘之旗印
 ```
 
 输出单个角色的瘦身 JSON：
 
 ```powershell
-genshin-analyser show-character 胡桃 --raw
+genshin-analyzer show-character 胡桃 --raw
 ```
 
 输出单把武器的瘦身 JSON：
 
 ```powershell
-genshin-analyser show-weapon 护摩之杖 --raw
+genshin-analyzer show-weapon 护摩之杖 --raw
 ```
 
 输出单套圣遗物的瘦身 JSON：
 
 ```powershell
-genshin-analyser show-artifact 绝缘之旗印 --raw
+genshin-analyzer show-artifact 绝缘之旗印 --raw
 ```
 
 ## 默认数据位置

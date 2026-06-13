@@ -3,7 +3,7 @@ requires = ["hatchling>=1.25"]
 build-backend = "hatchling.build"
 
 [project]
-name = "genshin-analyser"
+name = "genshin-analyzer"
 version = "0.1.0"
 description = "本地原神角色资料数据库。"
 readme = "README.md"
@@ -24,7 +24,7 @@ dev = [
 ]
 
 [project.scripts]
-genshin-analyser = "genshin_analyser.cli:app"
+genshin-analyzer = "genshin_analyzer.cli:app"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/genshin_analyser"]
+packages = ["src/genshin_analyzer"]

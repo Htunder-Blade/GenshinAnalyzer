@@ -6,8 +6,8 @@ from typing import Any
 
 import httpx
 
-from genshin_analyser.config import DEFAULT_CACHE_DIR, GENSHIN_DB_API_BASE_URL
-from genshin_analyser.exceptions import CharacterDataError
+from genshin_analyzer.config import DEFAULT_CACHE_DIR, GENSHIN_DB_API_BASE_URL
+from genshin_analyzer.exceptions import CharacterDataError
 
 
 class GenshinDbCharacterClient:
@@ -15,7 +15,7 @@ class GenshinDbCharacterClient:
         self,
         base_url: str = GENSHIN_DB_API_BASE_URL,
         timeout: float = 30.0,
-        user_agent: str = "GenshinAnalyser/0.1.0",
+        user_agent: str = "GenshinAnalyzer/0.1.0",
     ) -> None:
         self.base_url = base_url.rstrip("/")
         self.client = httpx.Client(timeout=timeout, headers={"User-Agent": user_agent})

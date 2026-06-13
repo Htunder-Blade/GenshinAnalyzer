@@ -7,7 +7,7 @@ from sqlalchemy import DateTime, ForeignKey, Integer, String, UniqueConstraint
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.types import JSON
 
-from genshin_analyser.db import AccountBase, Base
+from genshin_analyzer.db import AccountBase, Base
 
 
 class Character(Base):

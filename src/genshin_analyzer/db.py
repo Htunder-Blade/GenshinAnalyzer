@@ -5,7 +5,7 @@ from pathlib import Path
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 
-from genshin_analyser.config import DEFAULT_ACCOUNT_DB_PATH, DEFAULT_DB_PATH, ensure_data_dirs
+from genshin_analyzer.config import DEFAULT_ACCOUNT_DB_PATH, DEFAULT_DB_PATH, ensure_data_dirs
 
 
 class Base(DeclarativeBase):
@@ -35,7 +35,7 @@ def make_account_session_factory(db_path: Path = DEFAULT_ACCOUNT_DB_PATH):
 
 
 def init_db(db_path: Path = DEFAULT_DB_PATH) -> None:
-    from genshin_analyser import models as _models  # noqa: F401
+    from genshin_analyzer import models as _models  # noqa: F401
 
     engine = make_engine(db_path)
     Base.metadata.create_all(engine)
@@ -45,7 +45,7 @@ def init_db(db_path: Path = DEFAULT_DB_PATH) -> None:
 
 
 def init_account_db(db_path: Path = DEFAULT_ACCOUNT_DB_PATH) -> None:
-    from genshin_analyser import models as _models  # noqa: F401
+    from genshin_analyzer import models as _models  # noqa: F401
 
     engine = make_account_engine(db_path)
     AccountBase.metadata.create_all(engine)

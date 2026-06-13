@@ -6,8 +6,8 @@ from typing import Annotated
 
 import typer
 
-from genshin_analyser.character_source import GenshinDbCharacterClient, write_character_cache
-from genshin_analyser.config import (
+from genshin_analyzer.character_source import GenshinDbCharacterClient, write_character_cache
+from genshin_analyzer.config import (
     DEFAULT_ACCOUNT_DB_PATH,
     DEFAULT_ARTIFACT_CACHE_DIR,
     DEFAULT_CACHE_DIR,
@@ -15,9 +15,9 @@ from genshin_analyser.config import (
     DEFAULT_WEAPON_CACHE_DIR,
     ensure_data_dirs,
 )
-from genshin_analyser.db import init_account_db, init_db, make_account_session_factory, make_session_factory
-from genshin_analyser.exceptions import CharacterDataError
-from genshin_analyser.repository import (
+from genshin_analyzer.db import init_account_db, init_db, make_account_session_factory, make_session_factory
+from genshin_analyzer.exceptions import CharacterDataError
+from genshin_analyzer.repository import (
     count_artifact_sets,
     count_account_artifacts,
     count_account_characters,
