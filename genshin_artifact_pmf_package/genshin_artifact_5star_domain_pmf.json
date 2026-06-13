@@ -1,0 +1,238 @@
+{
+  "schema_version": "1.0.0",
+  "game": "Genshin Impact",
+  "artifact_model": "5_star_domain_standard",
+  "created_date": "2026-06-12",
+  "scope": {
+    "rarity": 5,
+    "source": "artifact_domain",
+    "assumptions": [
+      "Each artifact domain has exactly two featured 5-star artifact sets with equal probability.",
+      "Artifact slot/part probability is uniform across five slots.",
+      "Initial substat count is modeled as 3-line 80%, 4-line 20% for 5-star domain artifacts. This is a community/model assumption and should be kept configurable.",
+      "Initial minor affix types and newly unlocked minor affix types are sampled by weights after excluding the main stat if identical and excluding already-existing minor affixes.",
+      "Minor affix roll values and upgrade roll values are uniform across four tiers for 5-star artifacts.",
+      "When four minor affixes are present, upgrade slot selection is uniform across the four slots."
+    ],
+    "sources": [
+      {
+        "name": "Genshin Impact Wiki - Artifact/Distribution",
+        "url": "https://genshin-impact.fandom.com/wiki/Artifact/Distribution",
+        "used_for": [
+          "main stat PMF",
+          "minor affix weights",
+          "minor affix value tier PMF",
+          "upgrade slot PMF"
+        ]
+      },
+      {
+        "name": "Genshin Impact Wiki - Artifact/Stats",
+        "url": "https://genshin-impact.fandom.com/wiki/Artifact/Stats",
+        "used_for": [
+          "minor affix roll values",
+          "5-star upgrade/unlock mechanics"
+        ]
+      },
+      {
+        "name": "Project assumption",
+        "url": null,
+        "used_for": [
+          "domain set 50/50",
+          "slot 20% each",
+          "initial 3-line/4-line PMF"
+        ]
+      }
+    ]
+  },
+  "stat_units": {
+    "HP": "flat",
+    "ATK": "flat",
+    "DEF": "flat",
+    "HP_PERCENT": "percent",
+    "ATK_PERCENT": "percent",
+    "DEF_PERCENT": "percent",
+    "ENERGY_RECHARGE": "percent",
+    "ELEMENTAL_MASTERY": "flat",
+    "CRIT_RATE": "percent",
+    "CRIT_DMG": "percent",
+    "HEALING_BONUS": "percent",
+    "PYRO_DMG_BONUS": "percent",
+    "ELECTRO_DMG_BONUS": "percent",
+    "CRYO_DMG_BONUS": "percent",
+    "HYDRO_DMG_BONUS": "percent",
+    "DENDRO_DMG_BONUS": "percent",
+    "ANEMO_DMG_BONUS": "percent",
+    "GEO_DMG_BONUS": "percent",
+    "PHYSICAL_DMG_BONUS": "percent"
+  },
+  "set_pmf": {
+    "SET_A": 0.5,
+    "SET_B": 0.5
+  },
+  "slot_pmf": {
+    "FLOWER": 0.2,
+    "PLUME": 0.2,
+    "SANDS": 0.2,
+    "GOBLET": 0.2,
+    "CIRCLET": 0.2
+  },
+  "main_stat_pmf_by_slot": {
+    "FLOWER": {
+      "HP": 1.0
+    },
+    "PLUME": {
+      "ATK": 1.0
+    },
+    "SANDS": {
+      "HP_PERCENT": 0.2668,
+      "ATK_PERCENT": 0.2666,
+      "DEF_PERCENT": 0.2666,
+      "ENERGY_RECHARGE": 0.1,
+      "ELEMENTAL_MASTERY": 0.1
+    },
+    "GOBLET": {
+      "HP_PERCENT": 0.1925,
+      "ATK_PERCENT": 0.1925,
+      "DEF_PERCENT": 0.19,
+      "PYRO_DMG_BONUS": 0.05,
+      "ELECTRO_DMG_BONUS": 0.05,
+      "CRYO_DMG_BONUS": 0.05,
+      "HYDRO_DMG_BONUS": 0.05,
+      "DENDRO_DMG_BONUS": 0.05,
+      "ANEMO_DMG_BONUS": 0.05,
+      "GEO_DMG_BONUS": 0.05,
+      "PHYSICAL_DMG_BONUS": 0.05,
+      "ELEMENTAL_MASTERY": 0.025
+    },
+    "CIRCLET": {
+      "HP_PERCENT": 0.22,
+      "ATK_PERCENT": 0.22,
+      "DEF_PERCENT": 0.22,
+      "CRIT_RATE": 0.1,
+      "CRIT_DMG": 0.1,
+      "HEALING_BONUS": 0.1,
+      "ELEMENTAL_MASTERY": 0.04
+    }
+  },
+  "initial_substat_count_pmf": {
+    "3": 0.8,
+    "4": 0.2
+  },
+  "minor_affix_type_weights": {
+    "HP": 6,
+    "ATK": 6,
+    "DEF": 6,
+    "HP_PERCENT": 4,
+    "ATK_PERCENT": 4,
+    "DEF_PERCENT": 4,
+    "ENERGY_RECHARGE": 4,
+    "ELEMENTAL_MASTERY": 4,
+    "CRIT_RATE": 3,
+    "CRIT_DMG": 3
+  },
+  "minor_affix_type_pmf_rule": {
+    "description": "For initial substats or newly unlocked fourth substat, remove any minor affix identical to the main stat and remove already-existing minor affixes. Probability = weight(stat) / sum(weights of available stats).",
+    "exclude_if_same_as_main_stat": true,
+    "exclude_existing_minor_affixes": true,
+    "sampling_without_replacement_for_initial_substats": true
+  },
+  "minor_affix_value_tier_pmf": {
+    "LOWEST_70": 0.25,
+    "LOW_80": 0.25,
+    "HIGH_90": 0.25,
+    "HIGHEST_100": 0.25
+  },
+  "minor_affix_roll_values_5_star": {
+    "HP": {
+      "LOWEST_70": 209.13,
+      "LOW_80": 239.0,
+      "HIGH_90": 268.88,
+      "HIGHEST_100": 298.75
+    },
+    "ATK": {
+      "LOWEST_70": 13.62,
+      "LOW_80": 15.56,
+      "HIGH_90": 17.51,
+      "HIGHEST_100": 19.45
+    },
+    "DEF": {
+      "LOWEST_70": 16.2,
+      "LOW_80": 18.52,
+      "HIGH_90": 20.83,
+      "HIGHEST_100": 23.15
+    },
+    "HP_PERCENT": {
+      "LOWEST_70": 4.08,
+      "LOW_80": 4.66,
+      "HIGH_90": 5.25,
+      "HIGHEST_100": 5.83
+    },
+    "ATK_PERCENT": {
+      "LOWEST_70": 4.08,
+      "LOW_80": 4.66,
+      "HIGH_90": 5.25,
+      "HIGHEST_100": 5.83
+    },
+    "DEF_PERCENT": {
+      "LOWEST_70": 5.1,
+      "LOW_80": 5.83,
+      "HIGH_90": 6.56,
+      "HIGHEST_100": 7.29
+    },
+    "ELEMENTAL_MASTERY": {
+      "LOWEST_70": 16.32,
+      "LOW_80": 18.65,
+      "HIGH_90": 20.98,
+      "HIGHEST_100": 23.31
+    },
+    "ENERGY_RECHARGE": {
+      "LOWEST_70": 4.53,
+      "LOW_80": 5.18,
+      "HIGH_90": 5.83,
+      "HIGHEST_100": 6.48
+    },
+    "CRIT_RATE": {
+      "LOWEST_70": 2.72,
+      "LOW_80": 3.11,
+      "HIGH_90": 3.5,
+      "HIGHEST_100": 3.89
+    },
+    "CRIT_DMG": {
+      "LOWEST_70": 5.44,
+      "LOW_80": 6.22,
+      "HIGH_90": 6.99,
+      "HIGHEST_100": 7.77
+    }
+  },
+  "enhancement": {
+    "levels": [
+      4,
+      8,
+      12,
+      16,
+      20
+    ],
+    "if_minor_affixes_less_than_4": "unlock_new_minor_affix",
+    "if_minor_affixes_equal_4": "upgrade_existing_minor_affix",
+    "upgrade_slot_pmf_when_4_substats": {
+      "SLOT_1": 0.25,
+      "SLOT_2": 0.25,
+      "SLOT_3": 0.25,
+      "SLOT_4": 0.25
+    },
+    "upgrade_value_tier_pmf": {
+      "LOWEST_70": 0.25,
+      "LOW_80": 0.25,
+      "HIGH_90": 0.25,
+      "HIGHEST_100": 0.25
+    },
+    "upgrade_count_distribution_for_one_named_slot_starting_4_substats_level0_to20": {
+      "0": 0.2373046875,
+      "1": 0.3955078125,
+      "2": 0.263671875,
+      "3": 0.087890625,
+      "4": 0.0146484375,
+      "5": 0.0009765625
+    }
+  }
+}

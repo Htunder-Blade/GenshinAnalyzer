@@ -1,0 +1,30 @@
+﻿[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "genshin-analyser"
+version = "0.1.0"
+description = "本地原神角色资料数据库。"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.27,<1",
+    "sqlalchemy>=2.0,<3",
+    "typer>=0.12,<1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ipykernel>=6.29,<7",
+    "nbclient>=0.10,<1",
+    "nbconvert>=7.16,<8",
+    "nbformat>=5.10,<6",
+    "notebook>=7.2,<8",
+]
+
+[project.scripts]
+genshin-analyser = "genshin_analyser.cli:app"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/genshin_analyser"]
